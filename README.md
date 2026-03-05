@@ -1,16 +1,43 @@
-# order_test_task
+# Flutter Test Task – Create Order
 
-A new Flutter project.
+Simple Flutter implementation of order creation via REST API.
 
-## Getting Started
+## Implemented
 
-This project is a starting point for a Flutter application.
+- `Order` model with `fromJson`
+- Custom `ApiException`
+- `createOrder()` API method with:
+  - async/await
+  - timeout (10s)
+  - HTTP 200 handling
+  - HTTP 400+ error handling
+  - no internet handling
+- `OrderController` with states:
+  - initial
+  - loading
+  - success
+  - error
+- UI screen with:
+  - "Создать заказ" button
+  - loading indicator
+  - error message
+  - retry option
 
-A few resources to get you started if this is your first Flutter project:
+## API
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+POST `/api/orders`
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Request:
+- userId (int)
+- serviceId (int)
+
+Response:
+- order_id
+- status
+- payment_url
+
+Placeholder URL: https://example.com
+
+## Tech
+
+Flutter • Dart • http
